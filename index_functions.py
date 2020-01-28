@@ -23,14 +23,14 @@ def tetrate(x, n=2):
     return n ** (tetrate(x - 1, n))
 
 
-def ackermann(m, n):
+def _ackermann(m, n):
     if m == 0:
         return n + 1
     elif m > 0 and n == 0:
-        return ackermann(m - 1, 1)
+        return _ackermann(m - 1, 1)
     else:
-        return ackermann(m - 1, ackermann(m, n - 1))
+        return _ackermann(m - 1, _ackermann(m, n - 1))
 
 
 def ack_simple(n):
-    return ackermann(n, n)
+    return _ackermann(n, n)
